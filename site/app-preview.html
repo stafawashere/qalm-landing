@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Qalm phone harness</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri+Quran&amp;family=Literata:opsz,wght@7..72,400;7..72,500&amp;display=swap">
+  <link rel="stylesheet" href="assets/css/phone.css?v=2">
+  <style>
+    :root { color-scheme: light dark; }
+    body { margin: 0; font: 15px/1.4 -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif; background: #E9E4D6; color: #15201B; }
+    body.is-dark { background: #070A09; color: #ECEFEA; }
+    .bar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; padding: 10px 16px; background: inherit; border-bottom: 1px solid rgba(127, 140, 132, 0.4); }
+    .bar button, .bar select { min-height: 32px; padding: 0 12px; border: 1px solid #7F8C84; border-radius: 999px; background: transparent; color: inherit; font: inherit; cursor: pointer; }
+    .bar button[aria-pressed="true"] { background: #0F5A45; border-color: #0F5A45; color: #fff; }
+    .bar label { display: inline-flex; gap: 6px; align-items: center; margin-left: 8px; }
+    .stage { --phone-scale: 1; display: flex; justify-content: center; padding: 28px 16px 90px; }
+    .log { max-width: 640px; margin: 0 auto; padding: 0 16px 40px; font: 12px/1.4 ui-monospace, Menlo, monospace; opacity: 0.8; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <div class="bar" id="bar" role="toolbar" aria-label="Views"></div>
+  <div class="stage" id="stage"></div>
+  <pre class="log" id="log" aria-live="polite"></pre>
+
+  <script src="https://cdn.jsdelivr.net/npm/adhan@4.4.6/lib/bundles/adhan.umd.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/suncalc@1.9.0/suncalc.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/gsap.min.js" defer></script>
+  <script type="module">
+    import { createPhone } from "./assets/js/app/phone.js";
+
+    const VIEWS = ["today", "qibla", "quran", "search", "khatm", "khatm-setup", "method", "nights", "lock", "privacy", "plus", "more", "bookmarks", "mosque"];
+    const bar = document.getElementById("bar");
+    const stage = document.getElementById("stage");
+    const log = document.getElementById("log");
+
+    const cities = await fetch("assets/data/cities.json").then((response) => response.json());
+    const params = new URLSearchParams(location.search);
+    const cityName = params.get("city") || "New York";
+    const place = cities.find((row) => row[0] === cityName) || cities[0];
+
+    const phone = createPhone(stage, {
+      place,
+      date: params.get("date") || new Date(),
+      theme: params.get("theme") === "dark" ? "dark" : "light",
+      asr: params.get("asr") || undefined,
+    });
+    window.phone = phone;
+
+    phone.on("change", (state) => {
+      log.textContent = `${state.view}${state.sheet ? ` + sheet ${state.sheet}` : ""} | ${state.method} | asr ${state.asr} | ${state.theme}`;
+    });
+
+    const buttons = new Map();
+    for (const view of VIEWS) {
+      const node = document.createElement("button");
+      node.type = "button";
+      node.textContent = view;
+      node.dataset.view = view;
+      node.addEventListener("click", () => phone.show(view));
+      buttons.set(view, node);
+      bar.append(node);
+    }
+
+    const dark = document.createElement("button");
+    dark.type = "button";
+    dark.textContent = "dark";
+    dark.setAttribute("aria-pressed", String(params.get("theme") === "dark"));
+    dark.addEventListener("click", () => {
+      const next = dark.getAttribute("aria-pressed") !== "true";
+      dark.setAttribute("aria-pressed", String(next));
+      document.body.classList.toggle("is-dark", next);
+      phone.set({ theme: next ? "dark" : "light" });
+    });
+    document.body.classList.toggle("is-dark", params.get("theme") === "dark");
+    bar.append(dark);
+
+    const scale = document.createElement("select");
+    scale.setAttribute("aria-label", "Scale");
+    for (const value of [0.6, 0.8, 1]) scale.append(new Option(`${value * 100}%`, String(value), false, value === 1));
+    scale.addEventListener("change", () => stage.style.setProperty("--phone-scale", scale.value));
+    const scaleLabel = document.createElement("label");
+    scaleLabel.append("Scale", scale);
+    bar.append(scaleLabel);
+
+    const start = params.get("view");
+    if (start && VIEWS.includes(start)) phone.show(start);
+  </script>
+</body>
+</html>

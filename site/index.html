@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Qalm: Prayer Times &amp; Quran</title>
+  <meta name="description" content="Qalm, said like calm, is a prayer times and Quran app coming to iPhone, Apple Watch and Mac in April 2027. No ads, and built to collect nothing.">
+  <meta property="og:title" content="Qalm: Prayer Times &amp; Quran">
+  <meta property="og:description" content="Prayer times and Quran, calmly. No ads, and built to collect nothing.">
+  <meta property="og:image" content="assets/img/brand/qalm-icon.png">
+  <meta name="theme-color" content="#FAF8F3">
+  <link rel="icon" href="assets/img/brand/qalm-mark.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/brand/qalm-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri+Quran&amp;family=Literata:opsz,wght@7..72,400;7..72,500&amp;display=swap">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/phone.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <svg width="0" height="0" class="sprite" aria-hidden="true">
+    <symbol id="mark" viewBox="0 0 100 100">
+      <g fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M64.7 77.5 A34 34 0 1 1 79 63"/>
+        <path d="M38 66 V45 C38 37 44 31 50 25 C56 31 62 37 62 45 V66"/>
+        <path d="M36 70 C42 66 46 66 50 69 C54 66 58 66 64 70" stroke-width="4"/>
+      </g>
+      <path d="M50 37 L52.4 42.2 L57.8 42.2 L53.4 45.6 L55 51 L50 47.8 L45 51 L46.6 45.6 L42.2 42.2 L47.6 42.2 Z" fill="currentColor"/>
+      <path d="M70 69 L77 72 L93 93 L72 76 Z" fill="currentColor"/>
+    </symbol>
+  </svg>
+
+  <a class="skip" href="#day">Skip to your day</a>
+
+  <canvas class="sky" data-sky aria-hidden="true"></canvas>
+
+  <p class="preview-chip">Design preview. The app is not out yet.</p>
+
+  <header class="top">
+    <a class="wordmark" href="#top" aria-label="Qalm, home">
+      <svg class="wordmark__mark" aria-hidden="true"><use href="#mark"/></svg>
+      <span class="wordmark__name">Qalm</span>
+    </a>
+    <nav class="top__links" aria-label="On this page">
+      <a href="#day">Your day</a>
+      <a href="#method">The app</a>
+      <a href="#price">Price</a>
+      <a href="#questions">Questions</a>
+      <span class="top__next" data-next-prayer></span>
+      <a class="top__action" href="#launch">Remind me</a>
+    </nav>
+  </header>
+
+  <main>
+  <section class="hero" id="top" aria-labelledby="hero-title" data-chapter="arrival">
+    <div class="hero__astrolabe" data-astrolabe data-depth="0.18">
+      <div class="astro-slider" role="slider" tabindex="0" aria-label="Time of day on the astrolabe" aria-valuemin="0" aria-valuemax="1439" aria-valuenow="0" aria-valuetext=""></div>
+      <svg class="astro-hit" aria-hidden="true"></svg>
+    </div>
+
+    <div class="hero__text" data-depth="-0.05">
+      <h1 id="hero-title">Prayer times and Quran, calmly.</h1>
+      <p class="hero__lede">Qalm, said like calm, works out each prayer time from the sun over your city. No ads, ever.</p>
+      <div class="today" aria-live="polite">
+        <p class="today__title">Today in <span data-city-name>New York</span></p>
+        <ol class="today__list">
+          <li data-prayer="fajr"><span>Fajr</span> <b data-time="fajr">5:57 AM</b></li>
+          <li data-prayer="sunrise" class="is-quiet"><span>Sunrise</span> <b data-time="sunrise">7:13 AM</b></li>
+          <li data-prayer="dhuhr"><span>Dhuhr</span> <b data-time="dhuhr">12:42 PM</b></li>
+          <li data-prayer="asr"><span>Asr</span> <b data-time="asr">3:40 PM</b></li>
+          <li data-prayer="maghrib"><span>Maghrib</span> <b data-time="maghrib">6:08 PM</b></li>
+          <li data-prayer="isha"><span>Isha</span> <b data-time="isha">7:24 PM</b></li>
+        </ol>
+      </div>
+      <div class="hero__launch">
+        <a class="button" href="#launch" data-magnetic>Remind me at launch</a>
+        <p>Coming to iPhone, Apple Watch and Mac in April&nbsp;2027.</p>
+      </div>
+    </div>
+
+    <div class="phone-col hero__phone">
+      <div data-phone-slot="arrival" data-scale="0.74" data-fit="190" data-tilt-y="-8" data-tilt-x="3" data-view="today" data-notes='[{"label":"Next prayer","y":0.22},{"label":"Method","y":0.52}]'></div>
+      <p class="visually-hidden">Press Tab to use the app preview, Escape to leave.</p>
+    </div>
+
+    <p class="hero__margin" data-margin aria-hidden="true"></p>
+  </section>
+
+  <section class="day" id="day" aria-labelledby="day-title" data-chapter="day">
+    <div class="day__pin" data-day-pin>
+      <div class="day__text">
+        <h2 id="day-title" class="day__clause" data-clause>Asr, when the shadow grows</h2>
+        <p class="day__rule" data-rule>A stick's shadow reaches its length plus its noon shadow, 2.24 times the stick, at 3:40 PM in New York.</p>
+        <p class="day__readout" data-readout><b data-readout-time>3:40 PM</b> <span data-readout-sun>Sun 24° above the horizon</span> <span data-readout-shadow>Shadow 2.2 × the stick</span></p>
+        <div class="day__controls">
+          <div class="field">
+            <label for="city">Your city</label>
+            <div class="field__row">
+              <input id="city" name="city" list="city-list" autocomplete="off" spellcheck="false" value="New York, US">
+              <button type="button" class="link-button" data-locate>Use my location</button>
+            </div>
+            <datalist id="city-list"></datalist>
+            <p class="field__note" data-city-note hidden></p>
+          </div>
+          <fieldset class="segmented" data-asr>
+            <legend>Asr rule</legend>
+            <label><input type="radio" name="asr" value="standard" checked> <span>Standard</span></label>
+            <label><input type="radio" name="asr" value="hanafi"> <span>Hanafi</span></label>
+          </fieldset>
+        </div>
+        <p class="day__method"><b data-method-name>ISNA, 15° for Fajr and Isha.</b></p>
+        <p class="day__estimate" data-estimate hidden>At your latitude the sun does not set or the sky stays light today, so these times are estimates. Many communities follow the times of Makkah or the nearest city with a normal night. Ask your imam.</p>
+      </div>
+
+      <div class="phone-col day__phone">
+        <div data-phone-slot="day" data-scale="0.7" data-fit="270" data-tilt-y="6" data-tilt-x="0" data-view="today" data-notes='[{"label":"Next prayer","y":0.22},{"label":"Method","y":0.52}]'></div>
+      </div>
+
+      <figure class="day__dial" data-paper data-disc>
+        <svg class="dial" data-dial role="img" aria-labelledby="dial-desc"><desc id="dial-desc">A plan view of a stick and its shadow, with rings at the noon, Standard Asr and Hanafi Asr shadow lengths, the sun on the rim and the Qibla needle.</desc></svg>
+        <figcaption class="dial__key">
+          <span class="key key--noon">Noon shadow</span>
+          <span class="key key--asr">Standard Asr</span>
+          <span class="key key--hanafi">Hanafi Asr</span>
+          <span class="key key--qibla">Qibla <b data-qibla>58.5°</b></span>
+        </figcaption>
+      </figure>
+
+      <div class="day__time">
+        <label class="visually-hidden" for="time-of-day">Time of day</label>
+        <div class="track" aria-hidden="true"><div class="track__fill" data-track-fill></div></div>
+        <input type="range" id="time-of-day" min="0" max="1439" step="1" value="940" data-slider>
+        <ol class="stops" aria-label="Prayer times">
+          <li><button type="button" data-stop="fajr"><span>Fajr</span> <b data-time="fajr">5:57 AM</b></button></li>
+          <li><button type="button" data-stop="sunrise"><span>Sunrise</span> <b data-time="sunrise">7:13 AM</b></button></li>
+          <li><button type="button" data-stop="dhuhr"><span>Dhuhr</span> <b data-time="dhuhr">12:42 PM</b></button></li>
+          <li><button type="button" data-stop="asr"><span>Asr</span> <b data-time="asr">3:40 PM</b></button></li>
+          <li><button type="button" data-stop="maghrib"><span>Maghrib</span> <b data-time="maghrib">6:08 PM</b></button></li>
+          <li><button type="button" data-stop="isha"><span>Isha</span> <b data-time="isha">7:24 PM</b></button></li>
+        </ol>
+        <p class="day__note">Move the slider or scroll. Times come from adhan-js, the calculation family the app uses.</p>
+        <p class="visually-hidden" aria-live="polite" data-live></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="heritage field field--night sheet" aria-labelledby="heritage-title" data-chapter="heritage" data-paper="night">
+    <div class="heritage__pin" data-heritage-pin>
+      <div class="heritage__view">
+        <div class="heritage__track" data-heritage-track>
+          <div class="heritage__head">
+            <h2 id="heritage-title">Measured for a thousand years</h2>
+            <p class="heritage__intro">Before clocks, prayer times were found with brass and a shadow.</p>
+          </div>
+          <figure class="relic relic--tall">
+            <div class="relic__lens">
+              <svg class="relic__limb" data-limb viewBox="-114 -114 228 228" aria-hidden="true"></svg>
+              <div class="relic__pic" data-loupe style="--cx: 0.512; --cy: 0.609; --r: 0.284; --ratio: 1.336">
+                <picture>
+                  <source type="image/webp" srcset="assets/img/archive/web/astrolabe-of-umar-ibn-yusuf-ibn-umar-800.webp 800w, assets/img/archive/web/astrolabe-of-umar-ibn-yusuf-ibn-umar-1200.webp 1200w" sizes="(min-width: 1100px) 90vw, 200vw">
+                  <img src="assets/img/archive/web/astrolabe-of-umar-ibn-yusuf-ibn-umar-800.jpg" width="800" height="1069" alt="The face of a brass astrolabe, its openwork rete over a plate of curved lines." loading="lazy">
+                </picture>
+              </div>
+            </div>
+            <figcaption>
+              <p class="relic__year">1291</p>
+              <h3>Astrolabe of al-Muzaffari, Yemen</h3>
+              <p class="relic__credit">13th century. The Metropolitan Museum of Art.</p>
+              <p>Its plate maps the sky for one latitude. Turn the rete over it and the hour can be read from the sun or a star.</p>
+            </figcaption>
+          </figure>
+          <figure class="relic relic--square">
+            <div class="relic__lens">
+              <svg class="relic__limb" data-limb viewBox="-114 -114 228 228" aria-hidden="true"></svg>
+              <div class="relic__pic" data-loupe style="--cx: 0.5; --cy: 0.495; --r: 0.435; --ratio: 1">
+                <picture>
+                  <source type="image/webp" srcset="assets/img/archive/web/andalusian-astrolabe-420-ah-rete-800.webp 800w, assets/img/archive/web/andalusian-astrolabe-420-ah-rete-1200.webp 1200w" sizes="(min-width: 1100px) 60vw, 160vw">
+                  <img src="assets/img/archive/web/andalusian-astrolabe-420-ah-rete-800.jpg" width="800" height="800" alt="The openwork brass rete of an astrolabe on black, its curved pointers marking stars." loading="lazy">
+                </picture>
+              </div>
+            </div>
+            <figcaption>
+              <p class="relic__year">1029</p>
+              <h3>Rete of an Andalusian astrolabe</h3>
+              <p class="relic__credit">11th century. Wikimedia Commons.</p>
+              <p>The pointers of this openwork rete are stars. Set against the plate, they show the sky at any hour.</p>
+            </figcaption>
+          </figure>
+          <figure class="relic relic--wide">
+            <div class="relic__lens">
+              <svg class="relic__limb" data-limb viewBox="-114 -114 228 228" aria-hidden="true"></svg>
+              <div class="relic__pic" data-loupe style="--cx: 0.45; --cy: 0.57; --r: 0.32; --ratio: 0.829">
+                <picture>
+                  <source type="image/webp" srcset="assets/img/archive/web/horary-quadrant-800.webp 800w, assets/img/archive/web/horary-quadrant-1200.webp 1200w" sizes="(min-width: 1100px) 60vw, 160vw">
+                  <img src="assets/img/archive/web/horary-quadrant-800.jpg" width="800" height="663" alt="Worn brass engraved with hour lines and Arabic inscriptions." loading="lazy">
+                </picture>
+              </div>
+            </div>
+            <figcaption>
+              <p class="relic__year">10th</p>
+              <h3>Horary quadrant</h3>
+              <p class="relic__credit">10th century. The Metropolitan Museum of Art.</p>
+              <p>Sight the sun along one edge and a plumb line falls across the hour lines.</p>
+            </figcaption>
+          </figure>
+          <figure class="relic relic--square">
+            <div class="relic__lens">
+              <svg class="relic__limb" data-limb viewBox="-114 -114 228 228" aria-hidden="true"></svg>
+              <div class="relic__pic" data-loupe style="--cx: 0.58; --cy: 0.36; --r: 0.12; --ratio: 0.967">
+                <picture>
+                  <source type="image/webp" srcset="assets/img/archive/web/portable-compass-sundial-1200.webp 1200w, assets/img/archive/web/portable-compass-sundial-1600.webp 1600w" sizes="(min-width: 1100px) 60vw, 160vw">
+                  <img src="assets/img/archive/web/portable-compass-sundial-800.jpg" width="800" height="773" alt="The painted sundial in the lid of a compass sundial, its string gnomon crossing the hour lines." loading="lazy">
+                </picture>
+              </div>
+            </div>
+            <figcaption>
+              <p class="relic__year">1790</p>
+              <h3>Compass sundial</h3>
+              <p class="relic__credit">About 1790, 18th century. Art Institute of Chicago.</p>
+              <p>A gnomon and a compass in one case. Once the needle finds north, the shadow gives the hour.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="phone-col heritage__phone">
+        <div data-phone-slot="heritage" data-scale="0.6" data-fit="200" data-tilt-y="-18" data-tilt-x="0" data-dim="1" data-view="today"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="method field field--paper sheet" id="method" aria-labelledby="method-title" data-chapter="method" data-paper>
+    <div class="method__text">
+      <h2 id="method-title">The method sets the times</h2>
+      <p class="method__lede">Qalm starts with the usual method for your country and says why. Change it to match your mosque and every time updates.</p>
+      <fieldset class="methods" data-methods>
+        <legend>Calculation method for <span data-city-name>New York</span></legend>
+        <label class="methods__row" data-method-row="NorthAmerica">
+          <input type="radio" name="method" value="NorthAmerica">
+          <span class="methods__name">ISNA</span>
+          <span class="methods__times"><span>Fajr <b data-method-fajr>5:57 AM</b></span> <span>Isha <b data-method-isha>7:24 PM</b></span></span>
+        </label>
+        <label class="methods__row" data-method-row="MoonsightingCommittee">
+          <input type="radio" name="method" value="MoonsightingCommittee">
+          <span class="methods__name">Moonsighting Committee</span>
+          <span class="methods__times"><span>Fajr <b data-method-fajr>5:57 AM</b></span> <span>Isha <b data-method-isha>7:24 PM</b></span></span>
+        </label>
+        <label class="methods__row" data-method-row="MuslimWorldLeague">
+          <input type="radio" name="method" value="MuslimWorldLeague">
+          <span class="methods__name">Muslim World League</span>
+          <span class="methods__times"><span>Fajr <b data-method-fajr>5:57 AM</b></span> <span>Isha <b data-method-isha>7:24 PM</b></span></span>
+        </label>
+        <label class="methods__row" data-method-row="UmmAlQura">
+          <input type="radio" name="method" value="UmmAlQura">
+          <span class="methods__name">Umm al-Qura</span>
+          <span class="methods__times"><span>Fajr <b data-method-fajr>5:57 AM</b></span> <span>Isha <b data-method-isha>7:24 PM</b></span></span>
+        </label>
+      </fieldset>
+      <p class="method__reason" data-method-reason-line>US default: ISNA. Many US mosques use this. Moonsighting Committee is a common alternative.</p>
+      <p class="method__small">Custom angles and minute adjustments are in the app.</p>
+    </div>
+    <div class="phone-col method__phone">
+      <div data-phone-slot="method" data-scale="0.8" data-fit="140" data-tilt-y="-6" data-tilt-x="2" data-view="method" data-notes='[{"label":"Method","y":0.2},{"label":"Why this method","y":0.5}]'></div>
+    </div>
+  </section>
+
+  <section class="qibla field field--raised sheet" id="qibla" aria-labelledby="qibla-title" data-chapter="qibla" data-paper>
+    <div class="qibla__text">
+      <h2 id="qibla-title">Qibla, <span data-qibla>58.5°</span> from <span data-city-name>New York</span></h2>
+      <p class="qibla__lede">Facing <span data-qibla-word>east-northeast</span>, computed from <span data-city-name>New York</span>. The compass says when its accuracy is low.</p>
+      <p class="qibla__note">Move the slider to turn.</p>
+      <div class="qibla__turn">
+        <label for="heading">Your heading</label>
+        <input type="range" id="heading" min="0" max="359" step="1" value="0" data-heading>
+        <p class="qibla__state" aria-live="polite" data-heading-state>Facing north. Turn right 58 degrees.</p>
+        <button type="button" class="link-button" data-motion hidden>Use motion</button>
+      </div>
+    </div>
+    <figure class="qibla__ring" data-depth="0.12">
+      <svg viewBox="-360 -360 720 720" role="img" aria-labelledby="qibla-desc" data-qibla-ring>
+        <desc id="qibla-desc">A ring of prayer names around a compass, with a needle pointing to the Qibla bearing.</desc>
+        <defs><path id="qibla-path" d="M0 -300 A300 300 0 1 1 -0.01 -300"/></defs>
+        <circle class="qr__outer" r="344"/>
+        <circle class="qr__inner" r="248"/>
+        <g class="qr__ticks" data-qibla-ticks></g>
+        <text class="qr__names"><textPath href="#qibla-path" startOffset="0">Fajr · Sunrise · Dhuhr · Asr · Maghrib · Isha · Fajr · Sunrise · Dhuhr · Asr · Maghrib · Isha ·</textPath></text>
+        <g class="qr__rose">
+          <text class="qr__n" y="-212" text-anchor="middle">N</text>
+          <text class="qr__n" x="212" y="9" text-anchor="middle">E</text>
+          <text class="qr__n" y="230" text-anchor="middle">S</text>
+          <text class="qr__n" x="-212" y="9" text-anchor="middle">W</text>
+        </g>
+        <g data-qibla-needle>
+          <path class="qr__needle" d="M0 -190 L14 0 L0 36 L-14 0 Z"/>
+          <path class="qr__tail" d="M0 0 L14 0 L0 36 Z"/>
+        </g>
+        <circle class="qr__hub" r="9"/>
+      </svg>
+    </figure>
+    <div class="phone-col qibla__phone">
+      <div data-phone-slot="qibla" data-scale="0.62" data-fit="140" data-tilt-y="8" data-tilt-x="0" data-view="qibla" data-notes='[{"label":"Qibla bearing","y":0.3},{"label":"Compass accuracy","y":0.62}]'></div>
+    </div>
+  </section>
+
+  <section class="quran field field--paper sheet" id="quran" aria-labelledby="quran-title" data-chapter="quran" data-paper>
+    <div class="quran__text">
+      <h2 id="quran-title">The Quran, where you left off</h2>
+      <p class="quran__lede">Arabic text in Amiri Quran, unmodified from Tanzil. Search it, bookmark it, and open it where you stopped.</p>
+      <figure class="reader" data-depth="-0.06">
+        <p class="reader__ayah" lang="ar" dir="rtl" data-reader>بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
+        <figcaption>Al-Fatihah, 1:1, set the way the reader sets it.</figcaption>
+      </figure>
+    </div>
+    <div class="phone-col quran__phone">
+      <div data-phone-slot="quran" data-scale="0.8" data-fit="140" data-tilt-y="-6" data-tilt-x="0" data-view="quran" data-view-late="search" data-notes='[{"label":"Where you left off","y":0.2},{"label":"Bookmark","y":0.48}]'></div>
+    </div>
+  </section>
+
+  <section class="khatm field field--green sheet" id="khatm" aria-labelledby="khatm-title" data-chapter="khatm">
+    <div class="khatm__text">
+      <h2 id="khatm-title">Finish the Quran by a date you choose</h2>
+      <p class="khatm__lede">Choose a finish date and Qalm works out a daily amount. <span class="plus-tag">Part of Qalm Plus.</span></p>
+      <div class="khatm__plan">
+        <div class="stepper" role="group" aria-label="Days to finish">
+          <button type="button" class="stepper__button" data-days-step="-5" aria-label="Five days fewer">&minus;</button>
+          <output class="stepper__value" data-days-out aria-live="polite">30 days</output>
+          <button type="button" class="stepper__button" data-days-step="5" aria-label="Five days more">+</button>
+        </div>
+        <p class="khatm__result"><b data-khatm-amount>1 juz a day</b> <span data-khatm-finish>Finish on November 20.</span></p>
+      </div>
+    </div>
+    <div class="khatm__bar" data-khatm-bar role="img" aria-label="Thirty juz, with the first day's reading filled">
+      <span class="juz"></span><span class="juz"></span><span class="juz"></span><span class="juz"></span><span class="juz"></span>
+      <span class="juz"></span><span class="juz"></span><span class="juz"></span><span class="juz"></span><span class="juz"></span>
+      <span class="juz"></span><span class="juz"></span><span class="juz"></span><span class="juz"></span><span class="juz"></span>
+      <span class="juz"></span><span class="juz"></span><span class="juz"></span><span class="juz"></span><span class="juz"></span>
+      <span class="juz"></span><span class="juz"></span><span class="juz"></span><span class="juz"></span><span class="juz"></span>
+      <span class="juz"></span><span class="juz"></span><span class="juz"></span><span class="juz"></span><span class="juz"></span>
+    </div>
+    <div class="phone-col khatm__phone">
+      <div data-phone-slot="khatm" data-scale="0.8" data-fit="140" data-tilt-y="6" data-tilt-x="0" data-view="khatm" data-view-late="khatm-setup" data-notes='[{"label":"Daily amount","y":0.3},{"label":"Finish date","y":0.55}]'></div>
+    </div>
+  </section>
+
+  <section class="nights" id="nights" aria-labelledby="nights-title" data-chapter="nights" data-sky-scene="night">
+    <div class="nights__text">
+      <h2 id="nights-title">The last ten nights</h2>
+      <p class="nights__lede">Ten nights, the odd ones marked, with a reminder you can switch on for each. <span class="plus-tag">Part of Qalm Plus.</span></p>
+    </div>
+    <ol class="nights__list" data-depth="0.1" aria-label="The last ten nights">
+        <li class="night night--odd" style="--i: 0"><span class="night__dot" aria-hidden="true"></span><b>21</b><i>Odd night</i></li>
+        <li class="night" style="--i: 1"><span class="night__dot" aria-hidden="true"></span><b>22</b></li>
+        <li class="night night--odd" style="--i: 2"><span class="night__dot" aria-hidden="true"></span><b>23</b><i>Odd night</i></li>
+        <li class="night" style="--i: 3"><span class="night__dot" aria-hidden="true"></span><b>24</b></li>
+        <li class="night night--odd" style="--i: 4"><span class="night__dot" aria-hidden="true"></span><b>25</b><i>Odd night</i></li>
+        <li class="night" style="--i: 5"><span class="night__dot" aria-hidden="true"></span><b>26</b></li>
+        <li class="night night--odd" style="--i: 6"><span class="night__dot" aria-hidden="true"></span><b>27</b><i>Odd night</i></li>
+        <li class="night" style="--i: 7"><span class="night__dot" aria-hidden="true"></span><b>28</b></li>
+        <li class="night night--odd" style="--i: 8"><span class="night__dot" aria-hidden="true"></span><b>29</b><i>Odd night</i></li>
+        <li class="night" style="--i: 9"><span class="night__dot" aria-hidden="true"></span><b>30</b></li>
+    </ol>
+    <div class="phone-col nights__phone">
+      <div data-phone-slot="nights" data-scale="0.8" data-fit="140" data-tilt-y="6" data-tilt-x="0" data-view="nights" data-notes='[{"label":"Odd nights","y":0.3},{"label":"Reminder","y":0.6}]'></div>
+    </div>
+  </section>
+
+  <section class="adhan field field--sage sheet" id="adhan" aria-labelledby="adhan-title" data-chapter="adhan">
+    <div class="adhan__text">
+      <h2 id="adhan-title">An alert, when you want it</h2>
+      <p class="adhan__lede">Choose a sound, a chime or a silent banner for each prayer.</p>
+      <svg class="adhan__wave" viewBox="0 0 240 80" aria-hidden="true"><path class="wave" pathLength="1" data-chime/></svg>
+      <p class="adhan__caption">The sound comes with the app.</p>
+    </div>
+    <div class="phone-col adhan__phone">
+      <div class="adhan__rings" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div data-phone-slot="adhan" data-scale="0.74" data-fit="120" data-tilt-y="0" data-tilt-x="0" data-view="lock" data-notes='[{"label":"Next prayer","y":0.3},{"label":"Alert","y":0.5}]'></div>
+    </div>
+  </section>
+
+  <section class="devices field field--night sheet" id="devices" aria-labelledby="devices-title" data-chapter="devices" data-paper="night">
+    <div class="devices__head">
+      <h2 id="devices-title">Wherever you look</h2>
+      <p class="devices__lede">One day of prayer times, drawn for each screen it is planned for.</p>
+      <p class="devices__claims">Coming to iPhone, Apple Watch and Mac. Widgets for the Home Screen, Lock Screen and StandBy.</p>
+    </div>
+    <div class="devices__plates" data-devices></div>
+    <p class="devices__label">Design preview. The app is not out yet.</p>
+  </section>
+
+  <section class="quiet field field--paper sheet" id="quiet" aria-labelledby="quiet-title" data-chapter="quiet" data-paper>
+    <div class="quiet__head">
+      <h2 id="quiet-title" class="quiet__title">Built to collect nothing</h2>
+      <p class="quiet__lede">No accounts, no ads, no analytics. Your location is used on your device to work out times and the Qibla.</p>
+    </div>
+    <div class="phone-col quiet__phone">
+      <div data-phone-slot="quiet" data-scale="0.66" data-fit="200" data-tilt-y="-10" data-tilt-x="0" data-view="privacy" data-notes='[{"label":"No accounts","y":0.28},{"label":"Location stays here","y":0.55}]'></div>
+    </div>
+    <div class="quiet__body">
+      <div class="quiet__item">
+        <p>Alerts end on <b data-alerts-until>November 2</b>, and Qalm tops them up each time you open it.</p>
+        <div class="window" data-window>
+          <div class="window__bar"><span data-window-fill></span></div>
+        </div>
+      </div>
+      <div class="quiet__item">
+        <p>Qibla accuracy is shown, so you know when the compass is unsure.</p>
+      </div>
+      <div class="quiet__item">
+        <p>Above 48°, Qalm uses the one-seventh rule and tells you. Where the sky stays light, times are marked as estimates.</p>
+      </div>
+      <div class="quiet__item">
+        <p>Every method is named with the reason it was chosen.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="price field field--night sheet" id="price" aria-labelledby="price-title" data-chapter="price" data-paper="night" data-rosette>
+    <h2 id="price-title">Free, and Qalm Plus</h2>
+    <canvas class="price__seal" data-seal aria-hidden="true" data-depth="0.2"></canvas>
+    <div class="plan plan--free">
+      <h3 class="plan__name">Free, for good</h3>
+      <p class="plan__for">For everyone who prays.</p>
+      <p class="plan__price"><span class="plan__figure">0</span> <span class="plan__period">USD, always</span></p>
+      <p class="plan__includes">Prayer times for any place and every method, prayer alerts, Qibla, Home Screen, Lock Screen and StandBy widgets, the Arabic Quran with translation, bookmarks, search and the Ramadan countdown.</p>
+    </div>
+    <div class="plan plan--plus">
+      <h3 class="plan__name">Qalm Plus</h3>
+      <p class="plan__for">For a daily Quran habit, the Watch and the Mac.</p>
+      <p class="plan__price"><span class="plan__figure">34.99</span> <span class="plan__period">USD a year, after 7 days free</span></p>
+      <p class="plan__includes">Or USD 4.99 a month, or USD 79.99 once. Adds a khatm planner, a consistency view, a prayer log, tajweed colours, reading themes and notes, full-length alarms on iOS 26, the Apple Watch app, the Mac menu bar app and Ramadan tools. Family Sharing is on.</p>
+    </div>
+    <div class="phone-col price__phone">
+      <div data-phone-slot="price" data-scale="0.66" data-fit="180" data-tilt-y="-8" data-tilt-x="0" data-view="plus"></div>
+    </div>
+  </section>
+
+  <section class="faq field field--paper sheet" id="questions" aria-labelledby="faq-title" data-chapter="questions" data-paper>
+    <h2 id="faq-title">Questions</h2>
+    <div class="faq__list">
+      <details class="ask" open>
+        <summary><span>When does Qalm launch?</span></summary>
+        <p>It is planned for the App Store in April 2027. Until then nothing is for sale, and this page keeps nothing about you.</p>
+      </details>
+      <details class="ask">
+        <summary><span>Which method does Qalm use?</span></summary>
+        <p>The usual one for your country, with the reason shown: ISNA in the US, Moonsighting Committee in the UK, Umm al-Qura in Saudi Arabia, Karachi with Hanafi Asr in South Asia. You can choose any method.</p>
+      </details>
+      <details class="ask">
+        <summary><span>Why might my mosque's times differ?</span></summary>
+        <p>Mosques choose different angles, Asr rules and safety minutes, and some print a fixed timetable. Follow your mosque. Qalm lets you adjust each time by minutes to line up with it.</p>
+      </details>
+      <details class="ask">
+        <summary><span>What about high latitudes?</span></summary>
+        <p>Above 48°, summer nights may not get fully dark, so Qalm uses the one-seventh rule and tells you. Where the sun does not set or rise, times are marked as estimates. Ask your imam.</p>
+      </details>
+      <details class="ask">
+        <summary><span>What does Qalm collect?</span></summary>
+        <p>Nothing about you. Qalm has no accounts, no ads and no analytics, and your location stays on your device.</p>
+      </details>
+      <details class="ask">
+        <summary><span>Does it work on Apple Watch and Mac?</span></summary>
+        <p>Qalm is coming to iPhone, Apple Watch and Mac. The Watch app and the Mac menu bar app are planned as part of Qalm Plus.</p>
+      </details>
+      <details class="ask">
+        <summary><span>What is free?</span></summary>
+        <p>Prayer times, alerts, Qibla, widgets and the Arabic Quran with translation are free, and will stay free.</p>
+      </details>
+      <details class="ask">
+        <summary><span>What about Ramadan?</span></summary>
+        <p>Suhoor and iftar times and a Ramadan countdown are free. Plus adds a fasting log, a 30-day khatm plan and a view of the last ten nights.</p>
+      </details>
+      <details class="ask">
+        <summary><span>Does this page track me?</span></summary>
+        <p>No. No analytics, no cookies. Your city is worked out in your browser and is not sent to Qalm. Fonts and scripts load from Google Fonts, jsDelivr and cdnjs, which see your IP address as any web server does.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="launch" id="launch" aria-labelledby="launch-title" data-chapter="close" data-sky-scene="night">
+    <svg class="launch__q" viewBox="-200 -200 400 400" aria-hidden="true" data-depth="0.16">
+      <circle class="lq__ring" r="150"/>
+      <g data-close-ticks></g>
+      <g data-close-needle><path class="lq__needle" d="M0 -138 L9 0 L0 24 L-9 0 Z"/></g>
+      <circle class="lq__hub" r="7"/>
+    </svg>
+    <div class="launch__text">
+      <h2 id="launch-title">Coming April 2027</h2>
+      <p class="launch__next" data-next-line>Next in New York: Maghrib at 6:08 PM.</p>
+    </div>
+    <form class="remind" data-calendar aria-labelledby="remind-title">
+      <h3 id="remind-title">Remind me at launch</h3>
+      <p class="remind__note">Add the launch to your calendar. The file is made in your browser and nothing is sent to Qalm.</p>
+      <div class="field">
+        <label for="event-name">Event name</label>
+        <input id="event-name" name="title" value="Qalm on the App Store" maxlength="80">
+      </div>
+      <fieldset class="segmented">
+        <legend>Remind me</legend>
+        <label><input type="radio" name="when" value="0" checked> <span>On launch day</span></label>
+        <label><input type="radio" name="when" value="7"> <span>A week before</span></label>
+      </fieldset>
+      <button type="submit" class="button" data-magnetic>Add to calendar</button>
+      <p class="remind__small">Planned for 16 April 2027. The date can move.</p>
+    </form>
+    <div class="phone-col launch__phone">
+      <div data-phone-slot="close" data-scale="0.62" data-fit="260" data-tilt-y="-8" data-tilt-x="0" data-view="today" data-notes='[{"label":"Next prayer","y":0.22},{"label":"Method","y":0.52}]'></div>
+    </div>
+  </section>
+  </main>
+
+  <footer class="foot" data-sky-scene="night">
+    <p class="foot__name" aria-hidden="true">Qalm</p>
+    <p class="foot__what">Qalm, prayer times and Quran</p>
+    <nav class="foot__links" aria-label="Site">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="press.html">Press</a>
+      <a href="credits.html">Credits</a>
+    </nav>
+    <p class="foot__who">&copy; 2026 Mahfuj Mustafa<br><a href="mailto:support@qalm.app">support@qalm.app</a></p>
+    <p class="foot__credit">Instrument photographs from The Met, the Art Institute of Chicago and Wikimedia Commons, public domain. <a href="credits.html">Credits</a></p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/adhan@4.4.6/lib/bundles/adhan.umd.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/suncalc@1.9.0/suncalc.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/SplitText.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/Flip.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/DrawSVGPlugin.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/ScrambleTextPlugin.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js" defer></script>
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

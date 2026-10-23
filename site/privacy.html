@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy, Qalm</title>
+  <meta name="description" content="How Qalm handles your data. Qalm is built to collect nothing: no accounts, no ads, no analytics.">
+  <meta name="theme-color" content="#FAF8F3">
+  <link rel="icon" href="assets/img/brand/qalm-mark.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/brand/qalm-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri+Quran&amp;family=Literata:opsz,wght@7..72,400;7..72,500&amp;display=swap">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/page.css">
+</head>
+<body>
+  <svg width="0" height="0" class="sprite" aria-hidden="true">
+    <symbol id="mark" viewBox="0 0 100 100">
+      <g fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M64.7 77.5 A34 34 0 1 1 79 63"/>
+        <path d="M38 66 V45 C38 37 44 31 50 25 C56 31 62 37 62 45 V66"/>
+        <path d="M36 70 C42 66 46 66 50 69 C54 66 58 66 64 70" stroke-width="4"/>
+      </g>
+      <path d="M50 37 L52.4 42.2 L57.8 42.2 L53.4 45.6 L55 51 L50 47.8 L45 51 L46.6 45.6 L42.2 42.2 L47.6 42.2 Z" fill="currentColor"/>
+      <path d="M70 69 L77 72 L93 93 L72 76 Z" fill="currentColor"/>
+    </symbol>
+  </svg>
+
+  <div class="page">
+    <header class="page-header"><a class="wordmark" href="index.html" aria-label="Qalm, home"><svg class="wordmark__mark" aria-hidden="true"><use href="#mark"/></svg><span class="wordmark__name">Qalm</span></a></header>
+
+    <main class="doc">
+      <h1>Privacy</h1>
+      <p class="doc__meta">Draft, effective at launch</p>
+
+      <div class="doc__summary">
+        <h2>The short version</h2>
+        <p>Qalm is built to collect nothing: no accounts, no ads, no analytics. Your location, settings, reading progress and prayer log stay on your device. The only time Qalm contacts a server of mine is to download Quran translations and the Mushaf page layout, and that request carries no identifier. If you email me, I receive your address and your message.</p>
+      </div>
+
+      <p>Qalm is an app for prayer times and the Quran for iPhone, Apple Watch and Mac. It is made by Mahfuj Mustafa ("I", "me"), as an individual. It is planned for the App Store in April 2027. You can reach me at <a href="mailto:support@qalm.app">support@qalm.app</a>.</p>
+
+      <h2>What stays on your device</h2>
+      <h3>Location</h3>
+      <p>Qalm asks for your location "While Using the App" to work out prayer times and the Qibla direction. The coordinates are used on your device only and are never sent anywhere. If you refuse location, you can search for a city instead. The city list is inside the app.</p>
+
+      <h3>Your settings and records</h3>
+      <p>These are stored on your device, and if you delete the app, they are gone:</p>
+      <ul>
+        <li>Prayer times, calculation method, offsets, saved places and alert choices.</li>
+        <li>Quran bookmarks, notes, reading goals and the khatm plan.</li>
+        <li>The prayer log, the fasting log, and the Today's Ayat check-ins and journal.</li>
+        <li>The ayat you have memorised and your hifz review history, meaning which pages you revised and how you graded them.</li>
+        <li>Your qada tracker, meaning the prayers and fasts you are making up, the entries you log and the settings you choose.</li>
+      </ul>
+      <p>Plus lets you export your habit data as a file that you keep. The file is not encrypted and it contains religious practice data, so keep it somewhere you trust.</p>
+
+      <h3>Hifz and qada data</h3>
+      <p>Hifz and qada data are not shown on the Home Screen, the Lock Screen, in widgets, in notifications, on your Apple Watch, in Spotlight or in Siri shortcuts. The hifz reminder shows only a count, and qada has no reminder at all. The qada estimator uses the numbers you type in, including the typical days of menstruation per month if you choose to give one. It keeps them on your device only. They are never sent anywhere and are not part of the export file. The "Delete all Qalm data on this device" control in Settings, About removes your qada data.</p>
+
+      <h3>Alerts and your other devices</h3>
+      <p>Notifications and alarms are scheduled on your device. Qalm has no push notification server and does not know when an alert fires. Your Apple Watch and Mac apps keep their own copies of the data they need, and nothing is copied through any server of mine.</p>
+
+      <h2>What leaves your device</h2>
+      <h3>Quran translations and Mushaf page layout</h3>
+      <p>The Arabic text and the Mushaf page fonts are inside the app. Translations and the layout of the Mushaf pages (which words sit on which line) come from Quran Foundation through a small relay server that I run. Quran Foundation does not allow apps to ask for access tokens directly, so the relay holds the key and passes your request on.</p>
+      <ul>
+        <li>The request names the translation or Mushaf page you asked for and when your copy was last refreshed. It does not include your location, your name, an account, a device identifier or anything you have read.</li>
+        <li>The relay does not keep a database. It holds a short-lived copy of recent Quran Foundation responses in memory for up to 6 hours, which contains no information about you.</li>
+        <li>To limit abuse, the relay counts requests per caller using a scrambled form of the address that is held in memory only and is replaced every hour.</li>
+        <li>While the relay answers a request, the hosting provider and the network necessarily see your internet address. Quran Foundation sees the relay's address, not yours.</li>
+        <li>Quran Foundation requires apps to refresh this content at least every 7 days when online. Qalm does this about once a week in the background or when you open the app. If you never go online, translations and page layouts remain on your device until the app next syncs, and the Arabic text always works.</li>
+      </ul>
+
+      <h3>Purchases</h3>
+      <p>Plus is bought through Apple's App Store. Apple handles your payment and your Apple ID. I receive aggregate sales reports from Apple that do not identify you. Qalm checks your purchase on your device with Apple's StoreKit and does not send receipts to any server of mine.</p>
+
+      <h3>Maps</h3>
+      <p>The Qibla map view loads Apple Maps tiles through Apple. Apple's privacy policy applies to that.</p>
+
+      <h2>Data Apple may give me</h2>
+      <p>If you have chosen in your device settings to share crash and usage data with app developers, Apple may show me crash reports and aggregate statistics for Qalm in Xcode and App Store Connect. I do not receive your name or contact details with it. Qalm itself does not upload diagnostics.</p>
+
+      <h2>When you contact me</h2>
+      <p>If you email the support address, I receive your email address and what you write. I use it only to reply and to fix problems. I do not add you to any list. I delete the thread 12 months after the last message unless I have to keep it by law.</p>
+      <p>If you send feedback through TestFlight, Apple processes it under Apple's terms and I receive the message.</p>
+
+      <h2>This website</h2>
+      <p>The Qalm website has no analytics, no cookies and no trackers. The city picker and the calendar file run in your browser, and nothing you enter or choose is sent to Qalm.</p>
+      <p>The page loads fonts from Google Fonts and scripts from jsDelivr and cdnjs. Those services see your IP address, as any web server does when you ask it for a file.</p>
+
+      <h2>Who else is involved</h2>
+      <ul>
+        <li>Apple, for the App Store, StoreKit, TestFlight, maps and notifications on your device.</li>
+        <li>Quran Foundation, for translations and Mushaf page layout through the relay as described above, and for the Mushaf page fonts that are inside the app.</li>
+        <li>A hosting provider for the relay, as described above.</li>
+      </ul>
+      <p>I do not sell data, share data for advertising, or build profiles.</p>
+
+      <h2>Children</h2>
+      <p>Qalm does not collect data from anyone, including children. It has no accounts, no ads and no chat. Purchases are made through Apple's family and parental controls.</p>
+
+      <h2>Your rights</h2>
+      <p>Because Qalm does not collect personal data, there is usually nothing to access or delete. For support emails you can ask me to see, correct or delete what I hold by writing to the support address, and I will reply within 30 days. If you live in a place with a data protection authority, you may complain to it.</p>
+
+      <h2>Changes</h2>
+      <p>If this policy changes, the new text will be published here with a new date, and the change will be described in the release notes of the version that needs it.</p>
+
+      <h2>Contact</h2>
+      <p>Mahfuj Mustafa, <a href="mailto:support@qalm.app">support@qalm.app</a>.</p>
+    </main>
+
+    <footer class="foot">
+      <p class="foot__what">Qalm, prayer times and Quran</p>
+      <nav class="foot__links" aria-label="Site">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="press.html">Press</a>
+        <a href="credits.html">Credits</a>
+      </nav>
+      <p class="foot__who">&copy; 2026 Mahfuj Mustafa · <a href="mailto:support@qalm.app">support@qalm.app</a></p>
+      <p class="foot__credit">Instrument photographs from The Met, the Art Institute of Chicago and Wikimedia Commons, public domain. <a href="credits.html">Credits</a></p>
+    </footer>
+  </div>
+</body>
+</html>
